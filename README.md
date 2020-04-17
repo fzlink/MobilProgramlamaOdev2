@@ -3,7 +3,7 @@
 
 Tüm şifreler = "1"<br/>
 Giriş için kullanıcılar:<br/>
-Faz<br/>
+Faz (Uygulamada yazılı olarak gelir) <br/>
 Zehra<br/>
 SpiderMan<br/>
 Daredevil<br/>
