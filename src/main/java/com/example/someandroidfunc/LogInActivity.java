@@ -42,6 +42,7 @@ public class LogInActivity extends AppCompatActivity {
                     toast = Toast.makeText(getApplicationContext(),"Welcome to the Application!",Toast.LENGTH_LONG);
                     toast.show();
 
+
                     Intent menuIntent = new Intent(getApplicationContext(),MenuActivity.class);
                     menuIntent.putExtra("USERNAME", activePerson.getUserName());
                     menuIntent.putExtra("USERICON",activePerson.getImageID());

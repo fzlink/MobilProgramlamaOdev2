@@ -16,6 +16,9 @@ public class MenuActivity extends AppCompatActivity {
     CardView customizeCard;
     CardView notesCard;
     CardView sensorsCard;
+    CardView broadcastReceiverCard;
+    CardView asyncCard;
+    CardView locationCard;
     String userName;
 
     @Override
@@ -28,6 +31,10 @@ public class MenuActivity extends AppCompatActivity {
         customizeCard = findViewById(R.id.customizeCard);
         notesCard = findViewById(R.id.notesCard);
         sensorsCard = findViewById(R.id.sensorsCard);
+        broadcastReceiverCard = findViewById(R.id.broadcastReceiverCard);
+        asyncCard = findViewById(R.id.asyncCard);
+        locationCard = findViewById(R.id.locationCard);
+
 
         if(getIntent().hasExtra("USERNAME")){
             TextView userNameTextView = findViewById(R.id.menuUserNameText);
@@ -77,6 +84,28 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(sensorsIntent);
             }
         });
+        broadcastReceiverCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent broadcastIntent = new Intent(getApplicationContext(),BroadcastReceiverActivity.class);
+                startActivity(broadcastIntent);
+            }
+        });
+        asyncCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent asyncTaskIntent = new Intent(getApplicationContext(),AsyncTaskActivity.class);
+                startActivity(asyncTaskIntent);
+            }
+        });
+        locationCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent locationIntent = new Intent(getApplicationContext(),LocationActivity.class);
+                startActivity(locationIntent);
+            }
+        });
+
     }
 
     @Override
