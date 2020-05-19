@@ -13,6 +13,7 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUES_RECEIVE_SMS = 0;
     private static final int MY_PERMISSIONS_REQUEST_READ_PHONE_STATE = 1;
+    private static final int REQUESTS = 3;
 
 
     @Override
@@ -21,25 +22,28 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
         setContentView(R.layout.activity_broadcast_receiver);
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+                String[] PERMISSIONS = {
+                        Manifest.permission.RECEIVE_SMS,
+                        Manifest.permission.READ_PHONE_STATE
+                };
+                ActivityCompat.requestPermissions(this, PERMISSIONS, REQUESTS);
+            }
 
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.RECEIVE_SMS)){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECEIVE_SMS}, MY_PERMISSIONS_REQUES_RECEIVE_SMS);
+            /*if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.RECEIVE_SMS)){
 
             }
             else{
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECEIVE_SMS}, MY_PERMISSIONS_REQUES_RECEIVE_SMS);
 
-            }
+            }*/
         }
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
 
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_PHONE_STATE)){
-
-            }
-            else{
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
-
-            }
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
         }
+
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults){

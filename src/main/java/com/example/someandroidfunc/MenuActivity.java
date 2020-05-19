@@ -19,6 +19,7 @@ public class MenuActivity extends AppCompatActivity {
     CardView broadcastReceiverCard;
     CardView asyncCard;
     CardView locationCard;
+    CardView alarmCard;
     String userName;
 
     @Override
@@ -34,6 +35,7 @@ public class MenuActivity extends AppCompatActivity {
         broadcastReceiverCard = findViewById(R.id.broadcastReceiverCard);
         asyncCard = findViewById(R.id.asyncCard);
         locationCard = findViewById(R.id.locationCard);
+        alarmCard = findViewById(R.id.alarmCard);
 
 
         if(getIntent().hasExtra("USERNAME")){
@@ -103,6 +105,13 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent locationIntent = new Intent(getApplicationContext(),LocationActivity.class);
                 startActivity(locationIntent);
+            }
+        });
+        alarmCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent alarmIntent = new Intent(getApplicationContext(), AlarmActivity.class);
+                startActivity(alarmIntent);
             }
         });
 

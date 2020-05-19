@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LocationActivity"></activity>
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity android:name=".AlarmActivity" />
+
+        <service
+            android:name=".ActivityDetectionService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".MyTransitionIntentService"
+            android:exported="false" />
+
+        <activity android:name=".LocationActivity" />
         <activity android:name=".AsyncTaskActivity" />
 
         <receiver
